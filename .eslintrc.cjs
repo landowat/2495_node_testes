@@ -1,28 +1,32 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true,
+    es2021: true
   },
   extends: [
-    'airbnb-base',
+    'standard',
+    'plugin:react/recommended'
+  ],
+  overrides: [
+    {
+      env: {
+        node: true
+      },
+      files: [
+        '.eslintrc.{js,cjs}'
+      ],
+      parserOptions: {
+        sourceType: 'script'
+      }
+    }
   ],
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module',
+    sourceType: 'module'
   },
-  rules: {
-    'import/extensions': 0,
-    'prefer-destructuring': 0,
-    'no-underscore-dangle': 0,
-  },
-  overrides: [
-    {
-      files: [
-        '*.test.js',
-      ],
-      env: {
-        jest: true,
-      },
-    },
+  plugins: [
+    'react'
   ],
-};
+  rules: {
+  }
+}
